@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<link rel="icon" type="image/png" href="assets/img/favicon.ico">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<title>Dashboard</title>
+
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+
+
+    <!-- Bootstrap core CSS     -->
+	<link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet" />
+    <link href="{{ url_for('static', filename='css/light-bootstrap-dashboard.css') }}" rel="stylesheet" />
+
+    <!-- Animation library for notifications   -->
+    <link href="{{ url_for('static', filename='css/animate.min.css') }}" rel="stylesheet"/>
+
+    
+
+    <!--  CSS for Demo Purpose, don't include it in your project     -->
+    <link href="assets/css/demo.css" rel="stylesheet" />
+
+
+    <!--     Fonts and icons     -->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
+    <link href="{{ url_for('static', filename='css/animate.min.css') }}" rel="stylesheet" />
+
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="sidebar" data-color="azure" data-image="{{ url_for('static', filename='img/sidebar-5.jpg') }}">
+
+    <!--
+
+        Tip 1: you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple"
+        Tip 2: you can also add an image using data-image tag
+
+    -->
+
+    	<div class="sidebar-wrapper">
+            <div class="logo">
+                	<b>
+                    Traffic Analysis of Violations</b>
+                
+            </div>
+
+            <ul class="nav">
+                <li class="active">
+                    <a href="#">
+                        <i class="pe-7s-graph"></i>
+                        <p>Dashboard</p>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="http://localhost:5000/predictive">
+                        <i class="pe-7s-note2"></i>
+                        <p>Predictive Analytics</p>
+                    </a>
+                </li>
+                
+            </ul>
+    	</div>
+    </div>
+
+    <div class="main-panel">
+        <nav class="navbar navbar-default navbar-fixed">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Dashboard</a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-left">
+                       
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        
+                        <li>
+                            <a href="http://localhost:5000/logout">
+                                <p>Log out</p>
+                            </a>
+                        </li>
+						<li class="separator hidden-lg"></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-7">
+                        <div class="card">
+
+                            <div class="header">
+                                <h4 class="title">Trends in Violation Fines</h4>
+                                <p class="category">This graph depicts the trends in the fine amount paid in 2017</p>
+                            </div>
+                            <div class="content">
+				<div><select id='box' onchange="val()">
+				    <option id="Guh" value="graph-1">Guwahati</option>
+				    <option id="Nas" value="graph-2">Nashik</option>
+				    
+				</select></div>
+					
+                                <div id="graph-1" class="chartplotarea"></div>
+
+                               
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-5">
+                        <div class="card">
+                            <div class="header">
+                                <h4 class="title">Top Violations</h4>
+                                <p class="category">This Graph Depicts the top 5 violations in the slected city in the year 2017</p>
+                            </div>
+                            <div class="content">
+				<div><select id='box1' onchange="val1()">
+				    <option id="Guh" value="graph-3">Guwahati</option>
+				    <option id="Nas" value="graph-4">Nashik</option>
+				    
+				</select></div>
+                                <div id="graph-3" class="chartplotbar"></div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+			
+
+
+
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card ">
+                            <div class="header">
+                                <h4 class="title">Trends in Violations based on respective Area</h4>
+                                <p class="category">This graph dpicts the area wise violations in the slected city</p>
+                            </div>
+                            <div class="content">
+					<div><select id='box2' onchange="val2()">
+					    <option id="Guh" value="graph-5">Guwahati</option>
+					    <option id="Nas" value="graph-6">Nashik</option>
+					    
+					</select></div>
+                                	<div id="graph-5" class="chartplotpie"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-8">
+                        <div class="card ">
+                            <div class="header">
+                                <h4 class="title">Time vs Violation</h4>
+                                <p class="category">This graph depicts the relation between time and number of violations</p>
+                            </div>
+                            <div class="content">
+								<div><select id='box3' onchange="val3()">
+									<option id="Guh" value="graph-7">Guwahati</option>
+									<option id="Nas" value="graph-8">Nashik</option>
+						
+								</select></div>
+								                <div id="graph-7" class="timechart"></div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+	
+		<div class="row">
+			<div class="col-md-12">
+			<div class="card ">
+                            <div class="header">
+                                <h4 class="title">Trends in Violations</h4>
+                                <p class="category">This graph compares the common violations occuring over two months</p>
+                            </div>
+				<div class="content">
+                                <div id="graph-11" class="chartcompare"><center><img src="data:image/png;base64,{{ results }}" ></center></div>
+				</div>
+			</div>
+			</div>	
+		</div>
+	<div class="row">
+                    <div class="col-md-6">
+                        <div class="card ">
+                            <div class="header">
+                                <h4 class="title">Demographics of Violators</h4>
+                                <p class="category">Age and Gender of Violators are analysed</p>
+                            </div>
+                            <div class="content">
+					<div><select id='box4' onchange="val4()">
+					    <option id="gender" value="graph-9">Gender</option>
+					    <option id="age" value="graph-10">Age</option>
+					    
+					</select></div>
+                                	<div id="graph-9" class="chartplotgender"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="card ">
+                            <div class="header">
+                                <h4 class="title">Clustering based on Area</h4>
+                                <p class="category">Violations are clustered according to Longitude and Langitude</p>
+                            </div>
+                            <div class="content">
+				
+                                <div  class="clustering"><img src="data:image/png;base64,{{cluster}}" align="center" width="500" height="600" ></div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+	</div>
+        </div>
+
+
+        
+
+    </div>
+</div>
+
+
+</body>
+<script src="https://d14fo0winaifog.cloudfront.net/plotly-basic.js"></script>
+    <!--   Core JS Files   -->
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}" type="text/javascript"></script>
+	<script src="{{ url_for('static', filename='js/bootstrap-notify.js') }}" type="text/javascript"></script>
+
+	<!--  Charts Plugin -->
+	<script src="{{ url_for('static', filename='js/chartist.min.js') }}"></script>
+
+    <!--  Notifications Plugin    -->
+    <script src="{{ url_for('static', filename='js/bootstrap-select.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/jquery.3.2.1.min.js') }}"></script>
+
+    <!--  Google Maps Plugin    -->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+
+    <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
+	<script src="{{ url_for('static', filename='js/light-bootstrap-dashboard.js') }}"></script>
+
+	<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
+	<script src="assets/js/demo.js"></script>
+
+	<script type="text/javascript">
+    	$(document).ready(function(){
+
+        	demo.initChartist();
+
+        	$.notify({
+            	icon: 'pe-7s-gift',
+            	message: "Welcome to <b>Light Bootstrap Dashboard</b> - a beautiful freebie for every web developer."
+
+            },{
+                type: 'info',
+                timer: 4000
+            });
+
+    	});
+	</script>
+	<script type="text/javascript">
+		var d="haha";
+		console.log(d);
+		//var graph = {{graphJSON | safe}};
+		//Plotly.plot("graph-0", graph.data, graph.layout);
+		var graph2 = {{graphJSON2 | safe}};
+		//var graph4 = {{graphJSON4 | safe}};
+		//Plotly.plot("graph-4", graph4.data,graph4.layout);
+		var graph1 = {{graphJSON1 | safe}};
+	Plotly.plot("graph-1", graph1.data,graph1.layout);
+	function val() {
+   	d = document.getElementById("box").value;
+    //alert(d);
+//console.log(d);
+	var x = document.getElementsByClassName("chartplotarea");
+//var newId = obj.getAttribute(x);
+	document.getElementsByClassName("chartplotarea")[0].id = d;
+//obj.setAttribute(x)=newId;
+	//alert(x[0]);
+//document.getElementsByClassName("chartplotarea")[0].setAttribute("id", newId);
+//document.getElementById(newId).id = d;
+switch(d)
+{
+	case "graph-1":Plotly.newPlot("graph-1", graph1.data,graph1.layout);
+			break;
+	case "graph-2":Plotly.newPlot("graph-2", graph2.data,graph2.layout);
+			break;
+}
+
+
+	
+}
+//document.getElementById("mylink").HTML="<div id='graph-1'></div>"
+		
+		//var graph1 = {{graphJSON1 | safe}};
+		//Plotly.plot("graph-1", graph1.data,graph1.layout);
+		
+		
+console.log(d);
+</script>
+<script type="text/javascript">
+		var graph3 = {{graphJSON3 | safe}};
+		var graph4 = {{graphJSON4 | safe}};
+		Plotly.plot("graph-3", graph3.data, graph3.layout);
+	function val1() {
+   	d = document.getElementById("box1").value;
+	var x = document.getElementsByClassName("chartplotbar");
+	document.getElementsByClassName("chartplotbar")[0].id = d;
+	switch(d)
+	{
+		case "graph-3":Plotly.newPlot("graph-3", graph3.data, graph3.layout);
+				break;
+		case "graph-4":Plotly.newPlot("graph-4", graph4.data,graph4.layout);
+				break;
+	}
+
+
+	
+	}
+
+</script>
+<script type="text/javascript">
+		var graph5 = {{graphJSON5 | safe}};
+		var graph6 = {{graphJSON6 | safe}};
+		Plotly.plot("graph-5", graph5.data, graph5.layout);
+	function val2() {
+   	d = document.getElementById("box2").value;
+	var x = document.getElementsByClassName("chartplotpie");
+	document.getElementsByClassName("chartplotpie")[0].id = d;
+	switch(d)
+	{
+		case "graph-5":Plotly.newPlot("graph-5", graph5.data, graph5.layout);
+				break;
+		case "graph-6":Plotly.newPlot("graph-6", graph6.data);
+				break;
+	}
+
+
+	
+	}
+
+</script>
+<script type="text/javascript">
+		var graph7 = {{graphJSON7 | safe}};
+		var graph8 = {{graphJSON8 | safe}};
+		Plotly.plot("graph-7", graph7.data, graph7.layout);
+	function val3() {
+   	d = document.getElementById("box3").value;
+	var x = document.getElementsByClassName("timechart");
+	document.getElementsByClassName("timechart")[0].id = d;
+	switch(d)
+	{
+		case "graph-7":Plotly.newPlot("graph-7", graph7.data, graph7.layout);
+				break;
+		case "graph-8":Plotly.newPlot("graph-8", graph8.data,graph8.layout);
+				break;
+	}
+
+
+	
+	}
+
+</script>
+<script type="text/javascript">
+		var graph9 = {{graphJSON9 | safe}};
+		var graph10 = {{graphJSON10| safe}};
+		Plotly.plot("graph-9", graph9.data, graph9.layout);
+	function val4() {
+   	d = document.getElementById("box4").value;
+	var x = document.getElementsByClassName("chartplotgender");
+	document.getElementsByClassName("chartplotgender")[0].id = d;
+	switch(d)
+	{
+		case "graph-9":Plotly.newPlot("graph-9", graph9.data);
+				break;
+		case "graph-10":Plotly.newPlot("graph-10", graph10.data,graph10.layout);
+				break;
+	}
+
+
+	
+	}
+
+</script>
+
+</html>
+

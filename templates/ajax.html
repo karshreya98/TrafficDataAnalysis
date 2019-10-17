@@ -1,0 +1,32 @@
+ <!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="../static/main.css">
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script type=text/javascript>
+            $(function() {
+              $('a#process_input').bind('click', function() {
+                $.post('/', {  
+                  story: $('textarea[name="story"]').val(),
+                }, function(data) {
+                  $('#result').text(data.result);
+                });
+                return false;
+              });
+            });
+        </script>
+    </head>
+
+    <body>
+        <div class='container'>
+            <form>
+                <textarea id="text_input" rows="20" cols="80" name=story></textarea>
+                <br>
+                <a href=# id=process_input><button class='btn btn-default'>Submit</button></a>
+            </form>
+            <br>
+            <p><h2 align='center'>Result:</h2><h2 id=result align='center'></h2></p>
+
+        </div>
+    </body>
+</html>
