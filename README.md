@@ -8,3 +8,9 @@ Another requirement of the company that manages the E-Challan system and provide
 Some of the results of the data analysis look as follows:
 
 ![Alt text](/static/dp1.png?raw=true "Title")
+![Alt text](/static/dp2.png?raw=true "Title")
+![Alt text](/static/dp3.png?raw=true "Title")
+![Alt text](/static/dp4.png?raw=true "Title")
+
+
+As a part of the confidentiality agreement, the dataset we worked on cannot be made publicly available. But those who want to work on a similar project, you can use traffic violation datasets available on Kaggle.
