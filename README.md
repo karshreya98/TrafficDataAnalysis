@@ -7,4 +7,4 @@ Another requirement of the company that manages the E-Challan system and provide
 
 Some of the results of the data analysis look as follows:
 
-![Alt text](relative/path/to/img.jpg?raw=true "Title")
+![Alt text](/static/dp1.png?raw=true "Title")
